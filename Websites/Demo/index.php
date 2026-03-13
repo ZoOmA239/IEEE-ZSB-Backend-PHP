@@ -3,22 +3,34 @@
 
 <head>
     <title>Demo</title>
+    <style>
+        body {
+            display: grid;
+            place-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+        }
+    </style>
 </head>
 
 <body>
+    <?php
+    $name = "Harry Potter";
+    $read = false;
+
+    if ($read) {
+        $messag = "You have read $name";
+    } else {
+        $messag = "You have not read $name";
+    }
+
+    ?>
 
     <h1>
-        <?php
-        $greeting = "Hello";
-        echo $greeting  . " World!";
-        ?>
+        <?php echo $messag; ?>
     </h1>
-    <h2>
-        <?php
-        $how = "are you";
-        echo "How $how ?";
-        ?>
-    </h2>
+
 </body>
 
 </html>
