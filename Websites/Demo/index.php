@@ -9,9 +9,16 @@
 
     <h1>
         <?php
-        echo "Hello World!";
+        $greeting = "Hello";
+        echo $greeting  . " World!";
         ?>
     </h1>
+    <h2>
+        <?php
+        $how = "are you";
+        echo "How $how ?";
+        ?>
+    </h2>
 </body>
 
 </html>
