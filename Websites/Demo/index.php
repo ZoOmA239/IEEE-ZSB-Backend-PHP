@@ -3,7 +3,7 @@
 
 <head>
     <title>Demo</title>
-    <style>
+    <!-- <style>
         body {
             display: grid;
             place-items: center;
@@ -11,26 +11,23 @@
             margin: 0;
             font-family: sans-serif;
         }
-    </style>
+    </style> -->
 </head>
 
 <body>
+
+    <h1>Recommeded Books </h1>
+
+
     <?php
-    $name = "Harry Potter";
-    $read = false;
+    $books = ["Harry Potter", "The Lord of the Rings", "The Great Gatsby", "To Kill a Mockingbird"];  ?>
 
-    if ($read) {
-        $messag = "You have read $name";
-    } else {
-        $messag = "You have not read $name";
-    }
 
-    ?>
-
-    <h1>
-        <?php echo $messag; ?>
-    </h1>
-
+    <ul>
+        <?php foreach ($books as $book) : ?>
+            <li><?php echo $book; ?></li>
+        <?php endforeach; ?>
+    </ul>
 </body>
 
 </html>
