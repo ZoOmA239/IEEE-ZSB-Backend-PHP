@@ -18,14 +18,38 @@
 
     <h1>Recommeded Books </h1>
 
+    <?Php
+    $books = [
+        [
+            'name' => "Harry Potter",
+            'author' => "J.K. Rowling",
+            'year' => 1997
+        ],
+        [
+            'name' => "The Lord of the Rings",
+            'author' => "J.R.R. Tolkien",
+            'year' => 1954
+        ],
+        [
+            'name' => "The Great Gatsby",
+            'author' => "F. Scott Fitzgerald",
+            'year' => 1925
+        ],
+        [
+            'name' => "To Kill a Mockingbird",
+            'author' => "Harper Lee",
+            'year' => 1960
+        ]
 
-    <?php
-    $books = ["Harry Potter", "The Lord of the Rings", "The Great Gatsby", "To Kill a Mockingbird"];  ?>
+    ];
+    ?>
+
+
 
 
     <ul>
         <?php foreach ($books as $book) : ?>
-            <li><?php echo $book; ?></li>
+            <li><?php echo $book['author']; ?></li>
         <?php endforeach; ?>
     </ul>
 </body>
