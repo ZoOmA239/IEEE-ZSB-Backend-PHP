@@ -2,19 +2,20 @@
 
 require "functions.php";
 // require "router.php";
+require "Database.php";
 
 
-// connect to our mysql database
+// connect to the database and execute a query
 
-$dsn = "mysql:host=localhost;port=3306;user=root;charset=utf8mb4;dbname=myApp";
+$config = require "config.php";
 
-$pdo = new PDO($dsn);
+$db = new Database($config['Database']);
 
-$statment = $pdo->prepare("SELECT * FROM posts");
+$id = $_GET['id'];
 
-$statment->execute();
-$posts = $statment->fetchAll(PDO::FETCH_ASSOC);
+$query = "SELECT * FROM posts where id = :id";
 
-foreach ($posts as $post) {
-    echo "<li>{$post['Title']}</li>";
-}
+
+$posts = $db->query($query, [':id' => $id])->fetch();
+
+dd($posts);
