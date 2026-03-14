@@ -23,22 +23,26 @@
         [
             'name' => "Harry Potter",
             'author' => "J.K. Rowling",
-            'year' => 1997
+            'year' => 1997,
+            'url' => "https://en.wikipedia.org/wiki/Harry_Potter"
         ],
         [
             'name' => "The Lord of the Rings",
             'author' => "J.R.R. Tolkien",
-            'year' => 1954
+            'year' => 1954,
+            'url' => "https://en.wikipedia.org/wiki/The_Lord_of_the_Rings"
         ],
         [
             'name' => "The Great Gatsby",
             'author' => "F. Scott Fitzgerald",
-            'year' => 1925
+            'year' => 1925,
+            'url' => "https://en.wikipedia.org/wiki/The_Great_Gatsby"
         ],
         [
             'name' => "To Kill a Mockingbird",
-            'author' => "Harper Lee",
-            'year' => 1960
+            'author' => "J.K. Rowling",
+            'year' => 1960,
+            'url' => "https://en.wikipedia.org/wiki/To_Kill_a_Mockingbird"
         ]
 
     ];
@@ -49,7 +53,13 @@
 
     <ul>
         <?php foreach ($books as $book) : ?>
-            <li><?php echo $book['author']; ?></li>
+            <?php if ($book['author'] === "J.K. Rowling") : ?>
+                <li>
+                    <a href="<?php echo $book['url']; ?>">
+                        <?php echo $book['name']; ?> (<?php echo $book['year']; ?>) by <?php echo $book['author']; ?>
+                    </a>
+                </li>
+            <?php endif; ?>
         <?php endforeach; ?>
     </ul>
 </body>
