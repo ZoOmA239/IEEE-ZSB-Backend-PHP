@@ -49,24 +49,32 @@
 
 
 
-    function filterBooksByAuthor($books, $author)
+    function filter($items, $function)
     {
-        $filteredBooks = [];
-        foreach ($books as $book) {
-            if ($book['author'] === $author) {
-                $filteredBooks[] = $book;
+        $filtereditems = [];
+        foreach ($items as $item) {
+            if ($function($item)) {
+                $filtereditems[] = $item;
             }
         }
-        return $filteredBooks;
+        return $filtereditems;
     }
+
+
+
+
+    $filteredBooks = filter($books, function ($book) {
+        return $book['year'] < "1960";
+    });
 
     ?>
 
 
 
 
+
     <ul>
-        <?php foreach (filterBooksByAuthor($books, "J.K. Rowling") as $book) : ?>
+        <?php foreach ($filteredBooks as $book) : ?>
             <li>
                 <a href="<?php echo $book['url']; ?>">
                     <?php echo $book['name']; ?> (<?php echo $book['year']; ?>) by <?php echo $book['author']; ?>
