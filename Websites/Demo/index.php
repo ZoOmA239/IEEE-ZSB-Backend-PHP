@@ -1,15 +1,11 @@
 <?php
 
 require "functions.php";
-// require "router.php";
 require "Database.php";
+require "router.php";
 
 
 // connect to the database and execute a query
-
-$config = require "config.php";
-
-$db = new Database($config['Database']);
 
 $id = $_GET['id'];
 
