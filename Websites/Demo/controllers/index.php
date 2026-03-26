@@ -1,6 +1,6 @@
 <?Php
 
-
+$_SESSION['name'] = "Hazem";
 
 
 
