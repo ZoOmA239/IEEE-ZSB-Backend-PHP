@@ -1,6 +1,12 @@
 <?php
+
+namespace Core;
+
+use PDO;
+
 class Database
 {
+
     public $connection;
     public $statment;
     public function __construct($config, $username = 'root', $password = '')
