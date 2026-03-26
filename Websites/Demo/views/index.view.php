@@ -4,7 +4,7 @@
 
 <main>
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        Hello , Welcome to the Home Page </div>
+        Hello, <?= $_SESSION['user']['email'] ?? ' Guest' ?> , Welcome to the Home Page </div>
 </main>
 
 <?php require base_path("views/partials/footer.php"); ?>

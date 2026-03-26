@@ -12,8 +12,10 @@
                                                                     ?> rounded-md px-3 py-2 text-sm font-medium">Home</a>
                           <a href="/about" class="<?php echo urlIs('/about') ? 'bg-gray-900 text-white' : 'text-gray-300';
                                                     ?>rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">About</a>
-                          <a href="/notes" class="<?php echo urlIs('/notes') ? 'bg-gray-900 text-white' : 'text-gray-300';
-                                                    ?>rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Notes</a>
+                          <?php if ($_SESSION['user'] ?? false): ?>
+                              <a href="/notes" class="<?php echo urlIs('/notes') ? 'bg-gray-900 text-white' : 'text-gray-300';
+                                                        ?>rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Notes</a>
+                          <?php endif; ?>
                           <a href="/contact" class="<?php echo urlIs('/contact') ? 'bg-gray-900 text-white' : 'text-gray-300';
                                                     ?>rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Contact</a>
                       </div>
@@ -37,9 +39,12 @@
                                   <span class="sr-only">Open user menu</span>
                                   <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-8 rounded-full outline -outline-offset-1 outline-white/10" />
                               </button>
+
                           <?php else : ?>
-                              <a href="/register" class=" <?= urlIS('/register') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' ?>">Register</a>
-                              <a href="/login" class=" <?= urlIS('/login') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' ?>">Log in</a>
+                              <a href="/register" class="<?php echo urlIs('/register') ? 'bg-gray-900 text-white' : 'text-gray-300';
+                                                            ?>rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Register</a>
+                              <a href="/login" class="<?php echo urlIs('/login') ? 'bg-gray-900 text-white' : 'text-gray-300';
+                                                        ?>rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Login</a>
                           <?php endif; ?>
 
                           <el-menu anchor="bottom end" popover class="w-48 origin-top-right rounded-md bg-white py-1 shadow-lg outline-1 outline-black/5 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
@@ -48,6 +53,14 @@
                               <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">Sign out</a>
                           </el-menu>
                       </el-dropdown>
+                      <?php if ($_SESSION['user'] ?? false) : ?>
+                          <div class="relative ml-3">
+                              <form action="/session" method="post">
+                                  <input type="hidden" name="_method" value="DELETE">
+                                  <button type="submit" class=" text-white">Logout</button>
+                              </form>
+                          </div>
+                      <?php endif; ?>
                   </div>
               </div>
               <div class="-mr-2 flex md:hidden">
