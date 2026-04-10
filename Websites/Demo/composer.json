@@ -1,0 +1,16 @@
+{
+    "name": "hazam/back-end-php",
+    "authors": [
+        {
+            "name": "HazemHHHH",
+            "email": "hazemshradwan@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "Http\\": "Http/"
+        }
+    }
+}
