@@ -16,7 +16,7 @@
         }
     },
     "require-dev": {
-        "pestphp/pest": "^4.4",
+        "pestphp/pest": "^4.5",
         "phpunit/phpunit": "^12.5"
     },
     "config": {
