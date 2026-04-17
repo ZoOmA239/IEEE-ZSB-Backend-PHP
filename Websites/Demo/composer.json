@@ -12,11 +12,12 @@
     "autoload": {
         "psr-4": {
             "Core\\": "Core/",
-            "Http\\": "Http/"
+            "Http\\": "Http/",
+            "Tests\\": "Tests/"
         }
     },
     "require-dev": {
-        "pestphp/pest": "^4.5",
+        "pestphp/pest": "^4.6",
         "phpunit/phpunit": "^12.5"
     },
     "config": {
