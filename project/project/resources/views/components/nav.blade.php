@@ -1,4 +1,4 @@
-   <div class="navbar bg-base-100 shadow-sm">
+   <div class="navbar bg-base-200 ">
        <div class="navbar-start">
            <div class="dropdown">
                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -9,19 +9,34 @@
                <ul
                    tabindex="-1"
                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                   <li><a>Home</a></li>
-                   <li><a>Create</a></li>
+                   <li><a href="/ideas">Home</a></li>
+                   <li><a href="/ideas/create">Create</a></li>
+                   @can('view-admin')
+                   <li><a href="/admin">Admin</a></li>
+                   @endcan
                </ul>
            </div>
-           <a class="btn btn-ghost text-xl">Idea</a>
+           <a class="btn btn-ghost text-xl" href="/ideas">Idea</a>
        </div>
        <div class="navbar-center hidden lg:flex">
            <ul class="menu menu-horizontal px-1">
                <li><a href="/ideas">Home</a></li>
                <li><a href="/ideas/create">New Idea</a></li>
+               @can('view-admin')
+               <li><a href="/admin">Admin</a></li>
+               @endcan
            </ul>
        </div>
-       <div class="navbar-end">
-           <a class="btn">Register</a>
+       <div class="navbar-end space-x-2">
+           @auth
+           <form method="POST" action="/logout">
+               @csrf
+               @method('DELETE')
+               <button class="btn btn-ghost" type="submit">Logout</button>
+           </form>
+           @else
+           <a class="btn btn-primary" href="/register">Register</a>
+           <a class="btn btn-secondary" href="/login">Login</a>
+           @endauth
        </div>
    </div>
