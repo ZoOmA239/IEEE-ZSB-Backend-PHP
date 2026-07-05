@@ -15,6 +15,8 @@
     </div>
 
     @else
-    <p>No ideas to display yet. <a href="/ideas/create" class="text-indigo-500 hover:text-indigo-600">Create one</a>.</p>
+    <p>No ideas to display yet..</p>
     @endif
+
+    <p class="mt-6"> <a href="/ideas/create" class="text-indigo-500 hover:text-indigo-600">Create one</a></p>
 </x-layout>
