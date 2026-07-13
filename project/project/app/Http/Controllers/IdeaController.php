@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\IdeaRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\IdeaPublished;
 
 class IdeaController extends Controller
 {
@@ -22,6 +24,7 @@ class IdeaController extends Controller
 
 
         return view('ideas.index', [
+
             'ideas' => Auth::user()->ideas,
         ]);
     }
@@ -45,10 +48,14 @@ class IdeaController extends Controller
         //     'description' => 'required|min:5',
         // ]);
 
-        Auth::user()->ideas->create([
+        $idea = Idea::create([
             'description' => request('description'),
             'state' => 'pending',
+            'user_id' => Auth::id(),
         ]);
+
+        //notify the user that the idea has been created
+        Notification::send(Auth::user(), new IdeaPublished($idea));
         return redirect('/ideas');
     }
 

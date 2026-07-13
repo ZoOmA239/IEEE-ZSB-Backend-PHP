@@ -6,7 +6,7 @@
 @source '../../storage/framework/views/*.php';
 
 @plugin "daisyui"{
-    themes: dracula
+    themes: sunset --default
 }
 
 @theme {

@@ -2,7 +2,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-theme="dracula">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
